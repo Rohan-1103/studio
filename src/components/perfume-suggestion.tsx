@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -8,7 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ShoppingCart } from 'lucide-react';
 import type { SuggestionResult } from '@/app/page';
 
 interface PerfumeSuggestionProps {
@@ -31,12 +32,12 @@ export function PerfumeSuggestion({ suggestion, onReset }: PerfumeSuggestionProp
       <CardContent className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
         <div className="w-48 h-64 relative flex-shrink-0">
           <Image
-            src="https://picsum.photos/300/400"
+            src={suggestion.imageUrl || "https://picsum.photos/300/400"}
             alt={suggestion.perfumeSuggestion}
             width={300}
             height={400}
             data-ai-hint="perfume bottle"
-            className="rounded-lg object-cover shadow-lg"
+            className="rounded-lg object-contain shadow-lg"
           />
         </div>
         <div className="text-center md:text-left">
@@ -46,9 +47,15 @@ export function PerfumeSuggestion({ suggestion, onReset }: PerfumeSuggestionProp
           </CardDescription>
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex-col sm:flex-row gap-2">
         <Button onClick={onReset} variant="outline" className="w-full">
           Find Another Scent
+        </Button>
+        <Button asChild className="w-full">
+          <Link href={suggestion.buyingLink} target="_blank" rel="noopener noreferrer">
+            <ShoppingCart className="mr-2" />
+            Buy Now
+          </Link>
         </Button>
       </CardFooter>
     </Card>

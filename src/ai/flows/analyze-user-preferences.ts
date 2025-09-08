@@ -26,6 +26,8 @@ const AnalyzeUserPreferencesOutputSchema = z.object({
   reasoning: z
     .string()
     .describe('The reasoning behind the perfume suggestion based on the user responses.'),
+  imageUrl: z.string().url().describe('A URL to an image of the perfume bottle.'),
+  buyingLink: z.string().url().describe('A link to a reputable online store to buy the perfume.'),
 });
 export type AnalyzeUserPreferencesOutput = z.infer<typeof AnalyzeUserPreferencesOutputSchema>;
 
@@ -49,6 +51,8 @@ User Responses:
 {{/each}}
 
 Based on these responses and your knowledge of perfumes, suggest a specific perfume and explain your reasoning.  Consider various factors such as notes, accords, and the user's stated preferences.
+You must also provide a URL to an image of the perfume bottle and a buying link from a reputable online retailer.
+Provide a real image URL and a valid buying link. Do not use placeholder URLs.
 
 Perfume Suggestion:`, // Keep the formatting of this prompt, its critical
 });
