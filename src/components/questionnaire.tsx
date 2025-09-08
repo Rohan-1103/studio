@@ -47,6 +47,24 @@ const questions = [
     ],
   },
   {
+    id: 'gender',
+    text: 'This fragrance is for...',
+    options: [
+      { value: 'A woman', label: 'A woman' },
+      { value: 'A man', label: 'A man' },
+      { value: 'Anyone (unisex)', label: 'Anyone (unisex)' },
+    ],
+  },
+  {
+    id: 'intensity',
+    text: 'How strong do you like your fragrance to be?',
+    options: [
+      { value: 'Subtle and light, a skin scent', label: 'Subtle and light' },
+      { value: 'Moderate, noticeable but not overpowering', label: 'Moderate' },
+      { value: 'Strong and long-lasting, makes a statement', label: 'Strong and long-lasting' },
+    ],
+  },
+  {
     id: 'time_of_day',
     text: 'What time of day would you primarily wear this scent?',
     options: [
