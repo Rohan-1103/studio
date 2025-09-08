@@ -65,6 +65,16 @@ const questions = [
     ],
   },
   {
+    id: 'price_range',
+    text: 'What is your preferred price range?',
+    options: [
+      { value: 'Under $50', label: 'Under $50' },
+      { value: '$50 - $100', label: '$50 - $100' },
+      { value: '$100 - $200', label: '$100 - $200' },
+      { value: 'Over $200', label: 'Over $200' },
+    ],
+  },
+  {
     id: 'time_of_day',
     text: 'What time of day would you primarily wear this scent?',
     options: [
